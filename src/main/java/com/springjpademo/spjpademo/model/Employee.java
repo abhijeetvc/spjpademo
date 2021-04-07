@@ -3,10 +3,7 @@ package com.springjpademo.spjpademo.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -19,4 +16,8 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String city;
+
+    @ManyToOne
+    @JoinColumn(name="dept_id")
+    private Department department;
 }
