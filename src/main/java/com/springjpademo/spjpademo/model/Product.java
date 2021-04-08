@@ -4,18 +4,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-public class Department {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
 
-    @OneToMany(mappedBy = "department")
-    private List<Employee> employeeList;
+    @ManyToMany(mappedBy = "productSet")
+    private Set<Customer> customerSet;
 }
+
